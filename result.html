@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>result</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: #ffffff;
+      color: #000000;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 4em auto;
+      background-color: #209ebb;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 128, 0, 0.2);
+      text-align: center;
+    }
+    h1 {
+      color: black;
+    }
+    p {
+      font-size: 1.2em;
+      margin: 1.5em 0;
+    }
+    a {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.6em 1.5em;
+      background-color: #fc8500;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+    }
+    a:hover {
+      background-color: #ffb701;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Votre résultat</h1>
+    <p id="score">Votre résultat est <span id="correctCount" style="color: #fc8500;"> 0 </span> sur 10</p>
+    <a href="quiz.html">Retour au quiz</a>
+  </div>
+ <script>
+    const score = localStorage.getItem('quiz_score');
+    document.getElementById('correctCount').textContent = score;
+  </script></body>
+</html>
