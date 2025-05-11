@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>quiiiiiz </title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: white;
+      color: #000000;
+      padding: 2em;
+    }
+    h1 {
+      text-align: center;
+      color: #000000;
+    }
+    .quiz-container {
+      max-width: 700px;
+      margin: auto;
+      background-color:#8ecae6;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      padding: 2em;
+    }
+    .quiz-item {
+      margin-bottom: 2em;
+      border: 1px solid #c8e6c9;
+      padding: 1em;
+      border-radius: 8px;
+      background-color:#209ebb ;
+    }
+    .quiz-item p {
+      font-weight: bold;
+    }
+    .quiz-item button {
+      display: block;
+      margin: 0.5em 0;
+      padding: 0.7em;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      background-color:#085979;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .quiz-item button:hover {
+      background-color: #aed581;
+    }
+    .quiz-item button.correct {
+      background-color:green;
+    }
+    .quiz-item button.wrong {
+      background-color:red ;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 2em;
+    }
+    .back-link a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      background-color: #ffb701 ;
+      padding: 0.5em 1em;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Testez vos connaissances</h1>
+  <div class="quiz-container" id="quiz">
+<div class="quiz-item">
+  <p>Quel est le rôle principal des globules rouges ?</p>
+  <button onclick="checkAnswer(this, false)">Défendre contre les infections</button>
+  <button onclick="checkAnswer(this, true)">Transporter l’oxygène</button>
+  <button onclick="checkAnswer(this, false)">Produire des hormones</button>
+</div>
+
+<div class="quiz-item">
+  <p>Quel organe produit l’insuline ?</p>
+  <button onclick="checkAnswer(this, false)">Le foie</button>
+  <button onclick="checkAnswer(this, true)">Le pancréas</button>
+  <button onclick="checkAnswer(this, false)">L’intestin</button>
+</div>
+<div class="quiz-item">
+  <p>Quel muscle est responsable de la mastication ?</p>
+  <button onclick="checkAnswer(this, true)">Le masséter</button>
+  <button onclick="checkAnswer(this, false)">Le deltoïd</button>
+  <button onclick="checkAnswer(this, false)">Le biceps</button>
+</div>
+
+<div class="quiz-item">
+  <p>Quelle vitamine est essentielle à la coagulation sanguine ?</p>
+  <button onclick="checkAnswer(this, false)">Vitamine D</button>
+  <button onclick="checkAnswer(this, true)">Vitamine K</button>
+  <button onclick="checkAnswer(this, false)">Vitamine C</button>
+</div>
+
+<div class="quiz-item">
+  <p>ombien d’os compose le squelette humain adulte ?</p>
+  <button onclick="checkAnswer(this, true)">206</button>
+  <button onclick="checkAnswer(this, false)">150</button>
+  <button onclick="checkAnswer(this, false)">300</button>
+</div>
+
+<div class="quiz-item">
+  <p>Quel organe est responsable de la respiration ?</p>
+  <button onclick="checkAnswer(this, false)">Le foie</button>
+  <button onclick="checkAnswer(this, true)">Les poumons</button>
+  <button onclick="checkAnswer(this, false)">L’estomac</button>
+</div>
+<div class="quiz-item">
+  <p>Comment s’appelle l’os du bras ?</p>
+  <button onclick="checkAnswer(this, false)">Fémur</button>
+  <button onclick="checkAnswer(this, true)">Humérus</button>
+  <button onclick="checkAnswer(this, false)">Tibia</button>
+</div>
+<div class="quiz-item">
+  <p>Quel est le plus grand organe du corps humain ?</p>
+  <button onclick="checkAnswer(this, false)"> Le cœur</button>
+  <button onclick="checkAnswer(this, false)">Le foie</button>
+  <button onclick="checkAnswer(this, true)">La peau</button>
+</div>
+
+<div class="quiz-item">
+  <p>Quelle structure relie les dents à l’os alvéolaire ?</p>
+  <button onclick="checkAnswer(this, false)">L’émail</button>
+  <button onclick="checkAnswer(this, false)">Le cément</button>
+  <button onclick="checkAnswer(this, true)">Le ligament parodontal</button>
+</div>
+<div class="quiz-item">
+  <p> Quel est le rôle de l’amoxicilline ?</p>
+  <button onclick="checkAnswer(this, false)">Antiviral</button>
+  <button onclick="checkAnswer(this, true)">Antibiotique</button>
+  <button onclick="checkAnswer(this, false)">Antifongique</button>
+</div>
+
+  </div> <div class="back-link">
+    <a href="result.html" onclick="return showResult()">Résultat</a>
+  </div> <script>
+    let score = 0;
+    let total = 10;
+
+    function checkAnswer(button, isCorrect) {
+      const buttons = button.parentElement.querySelectorAll('button');
+      buttons.forEach(btn => btn.disabled = true);
+      if (isCorrect) {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+      }
+    }
+
+    function showResult() {
+      localStorage.setItem('quiz_score', score);
+      return true;
+    }
+  </script>
+</body>
+</html>
